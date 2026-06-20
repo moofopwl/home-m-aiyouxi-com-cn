@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九游 · 轻叙</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fce6d0 0%, #f3cdb0 45%, #ecba95 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1.2rem;
+            line-height: 1.6;
+            color: #2e2a27;
+        }
+        .page {
+            max-width: 960px;
+            width: 100%;
+        }
+        /* 导航 */
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 245, 235, 0.75);
+            backdrop-filter: blur(6px);
+            padding: 0.8rem 1.6rem;
+            border-radius: 48px;
+            box-shadow: 0 6px 18px rgba(160, 100, 60, 0.12);
+            margin-bottom: 2.8rem;
+        }
+        .nav-brand {
+            font-weight: 550;
+            font-size: 1.25rem;
+            letter-spacing: 0.02em;
+            color: #7a4d2a;
+            background: #fff0e2;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #4f3a2c;
+            font-size: 0.95rem;
+            font-weight: 450;
+            padding: 0.25rem 0.1rem;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .nav-links a:hover {
+            border-bottom-color: #b77b54;
+            color: #3e2b1c;
+        }
+        /* hero */
+        .hero {
+            background: rgba(255, 250, 244, 0.6);
+            backdrop-filter: blur(2px);
+            padding: 2.4rem 2.2rem;
+            border-radius: 32px;
+            margin-bottom: 2.6rem;
+            text-align: center;
+            box-shadow: 0 10px 28px rgba(140, 90, 50, 0.10);
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 400;
+            letter-spacing: 0.06em;
+            color: #4b311e;
+            margin-bottom: 0.8rem;
+        }
+        .hero h1 span {
+            font-weight: 550;
+            background: linear-gradient(145deg, #b67b54, #8d5d3a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero p {
+            max-width: 560px;
+            margin: 0 auto 0.6rem auto;
+            font-size: 1.05rem;
+            color: #4c3a2e;
+        }
+        .hero .link-sentence {
+            margin-top: 1.2rem;
+            font-size: 1rem;
+            background: #fff4ea;
+            display: inline-block;
+            padding: 0.4rem 1.4rem;
+            border-radius: 40px;
+        }
+        .hero .link-sentence a {
+            color: #854f2b;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dashed #b77b54;
+        }
+        .hero .link-sentence a:hover {
+            border-bottom-style: solid;
+            color: #4d2c16;
+        }
+        /* 三个场景卡片 */
+        .scenes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 2.8rem;
+        }
+        .card {
+            background: white;
+            border-radius: 28px;
+            padding: 1.8rem 1.5rem 1.6rem;
+            box-shadow: 0 12px 26px rgba(120, 70, 35, 0.08);
+            transition: transform 0.18s ease, box-shadow 0.2s;
+            border: 1px solid #f7e4d4;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 34px rgba(110, 65, 25, 0.12);
+        }
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 470;
+            color: #5b3b26;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .card p {
+            color: #4a3d33;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+        .card .tag {
+            display: inline-block;
+            background: #f1ddd0;
+            color: #4f321f;
+            font-size: 0.8rem;
+            padding: 0.15rem 0.8rem;
+            border-radius: 30px;
+            font-weight: 440;
+            letter-spacing: 0.02em;
+        }
+        .card a {
+            display: inline-block;
+            margin-top: 0.3rem;
+            background: #f5e3d6;
+            color: #3f2b1d;
+            text-decoration: none;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.88rem;
+            font-weight: 460;
+            transition: background 0.2s;
+        }
+        .card a:hover {
+            background: #e7cebc;
+        }
+        /* 常见说明区域 (FAQ 风格) */
+        .faq-section {
+            background: rgba(255, 247, 240, 0.8);
+            backdrop-filter: blur(3px);
+            border-radius: 32px;
+            padding: 2rem 2rem 1.8rem;
+            margin-bottom: 2.4rem;
+            box-shadow: 0 6px 18px rgba(100, 60, 30, 0.06);
+        }
+        .faq-section h2 {
+            font-size: 1.5rem;
+            font-weight: 440;
+            color: #4f3422;
+            margin-bottom: 1.4rem;
+            border-left: 4px solid #c28e69;
+            padding-left: 0.8rem;
+        }
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+        .faq-item strong {
+            display: block;
+            font-weight: 520;
+            color: #4f2f1b;
+            margin-bottom: 0.2rem;
+            font-size: 1rem;
+        }
+        .faq-item p {
+            color: #4a3b30;
+            font-size: 0.92rem;
+            padding-left: 1rem;
+            border-left: 2px solid #dfc6b4;
+        }
+        .faq-item .mention-link a {
+            color: #854f2b;
+            text-decoration: none;
+            border-bottom: 1px dotted #b77b54;
+        }
+        .faq-item .mention-link a:hover {
+            border-bottom: 1px solid;
+        }
+        /* 页脚 */
+        .footer {
+            margin-top: 1rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #5a4235;
+            padding: 1.2rem 0 0.6rem;
+            border-top: 1px solid rgba(160, 110, 70, 0.2);
+        }
+        .footer span {
+            background: #f3e1d2;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            display: inline-block;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 1.4rem 1rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .nav {
+                flex-direction: column;
+                gap: 0.6rem;
+                padding: 1rem;
+                border-radius: 30px;
+            }
+            .nav-links {
+                gap: 1rem;
+                justify-content: center;
+            }
+            .card {
+                padding: 1.4rem 1.2rem;
+            }
+            .faq-section {
+                padding: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- 顶部导航 -->
+    <nav class="nav">
+        <div class="nav-brand">✦ 九游</div>
+        <div class="nav-links">
+            <a href="#scene">场景</a>
+            <a href="#faq">常见</a>
+            <a href="#story">叙事</a>
+            <a href="https://a-9game.com">九游</a>
+        </div>
+    </nav>
+
+    <!-- hero 核心介绍 -->
+    <div class="hero">
+        <h1>与 <span>九游</span> 同行</h1>
+        <p>一个关于内容与连接的轻量角落。不喧哗，不局促，只是安静地聚合了一些值得驻足的片段。</p>
+        <div class="link-sentence">
+            如果你愿意，可以从 <a href="https://a-9game.com">九游</a> 开始，慢慢浏览。
+        </div>
+    </div>
+
+    <!-- 三个场景模块 -->
+    <div class="scenes" id="scene">
+        <div class="card">
+            <h3>◈ 闲读</h3>
+            <p>没有算法追赶，页面保持适中的留白与节奏。适合在午后打开一篇短文，或仅仅是翻看收集的摘录。</p>
+            <span class="tag">慢浏览</span>
+            <a href="https://a-9game.com">九游</a>
+        </div>
+        <div class="card">
+            <h3>◈ 归档</h3>
+            <p>像一本纸册，把零散的笔记、书影或灵感按自己的方式归拢。不追求全面，只在乎真实。</p>
+            <span class="tag">轻整理</span>
+            <a href="https://a-9game.com">九游</a>
+        </div>
+        <div class="card">
+            <h3>◈ 索引</h3>
+            <p>提供一些经过筛选的外部链接与内部脉络，不密不疏，刚好够顺着线索走得更远一些。</p>
+            <span class="tag">有边界</span>
+            <a href="https://a-9game.com">九游</a>
+        </div>
+    </div>
+
+    <!-- 常见说明 / FAQ 摘要 -->
+    <div class="faq-section" id="faq">
+        <h2>一些简单说明</h2>
+        <div class="faq-item">
+            <strong>这个站点主要是什么？</strong>
+            <p>一个个人维护的内容聚合，偏向文字、记录与安静浏览。没有广告，没有推送，只有被挑选过的内容。</p>
+        </div>
+        <div class="faq-item">
+            <strong>如何找到想看的板块？</strong>
+            <p>导航栏和场景卡片提供了三条路径。此外，站点内也设有关联跳转，例如从 <span class="mention-link"><a href="https://a-9game.com">九游</a></span> 可以进入主要归档。</p>
+        </div>
+        <div class="faq-item">
+            <strong>内容更新频率如何？</strong>
+            <p>不定时，但每次更新都会保留手写的痕迹。比起数量，更在意每篇内容是否还有继续存在的理由。</p>
+        </div>
+        <div class="faq-item">
+            <strong>为什么叫“九游”？</strong>
+            <p>九为数之极，游为不拘。名字背后是一种漫游与沉淀的意愿，不标榜深度，但求真诚。</p>
+        </div>
+    </div>
+
+    <!-- 一句叙述式结尾（非必须章节，但增加叙述感） -->
+    <div style="text-align: center; margin: 1rem 0 0.8rem; font-size: 0.95rem; color: #4c382a; background: #f0ddcf40; padding: 0.6rem 1rem; border-radius: 40px;">
+        慢慢来，比较快。—— 这里是 <a href="https://a-9game.com" style="color: #6b422b; text-decoration: none; border-bottom: 1px dotted #a7744d;">九游</a>，一本翻不完的薄册。
+    </div>
+
+    <!-- 页脚轻量信息 -->
+    <div class="footer">
+        <span>九游 · 叙述向内容聚合</span>
+    </div>
+</div>
+</body>
+</html>
