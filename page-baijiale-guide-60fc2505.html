@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百家乐 · 快速定位站点用途</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f4f9fc;
+            color: #1f2b38;
+            line-height: 1.7;
+            padding: 2rem 1.2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 840px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 8px 24px rgba(6, 62, 72, 0.06);
+            padding: 2.5rem 2rem;
+            transition: padding 0.2s;
+        }
+
+        /* 网格卡片背景点缀 */
+        .page {
+            background-image:
+                radial-gradient(circle at 8% 15%, rgba(6, 131, 145, 0.03) 0px, transparent 20px),
+                radial-gradient(circle at 88% 42%, rgba(20, 150, 140, 0.04) 0px, transparent 30px),
+                radial-gradient(circle at 40% 80%, rgba(7, 120, 125, 0.03) 0px, transparent 25px);
+            background-size: 100% 100%;
+        }
+
+        .article-header {
+            margin-bottom: 2.2rem;
+            border-bottom: 2px solid #d7ebe9;
+            padding-bottom: 1.4rem;
+        }
+
+        .article-title {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #0b4b52;
+            line-height: 1.2;
+            margin-bottom: 0.6rem;
+        }
+
+        .subhead {
+            font-size: 1.1rem;
+            color: #3c6e74;
+            font-weight: 400;
+            max-width: 80%;
+            background: #e4f3f0;
+            display: inline-block;
+            padding: 0.2rem 1rem 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin-top: 0.3rem;
+        }
+
+        .intro {
+            background: #e6f2f0;
+            padding: 1.2rem 1.5rem;
+            border-radius: 20px;
+            margin-bottom: 2.2rem;
+            border-left: 5px solid #1b9b8f;
+            color: #1d4045;
+            font-size: 1.05rem;
+            font-weight: 450;
+        }
+
+        .content-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .card-note {
+            background: #fafdfd;
+            border: 1px solid #cce3e0;
+            border-radius: 18px;
+            padding: 1.3rem 1.6rem;
+            box-shadow: 0 3px 6px rgba(0, 50, 55, 0.03);
+            transition: border 0.15s;
+        }
+
+        .card-note:hover {
+            border-color: #49b5aa;
+        }
+
+        .card-note h3 {
+            font-size: 1.2rem;
+            font-weight: 550;
+            color: #0d5b5b;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.3px;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .card-note h3::before {
+            content: "▹";
+            color: #1b9b8f;
+            font-size: 1.3rem;
+        }
+
+        .card-note p {
+            color: #2b4b4f;
+            margin-bottom: 0.4rem;
+        }
+
+        .highlight-text {
+            background: #d6efe9;
+            padding: 0.05rem 0.4rem;
+            border-radius: 6px;
+            font-weight: 500;
+            color: #06535a;
+        }
+
+        .quote-block {
+            background: #edf7f4;
+            border-radius: 20px;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0 1.5rem 0;
+            border: 1px solid #bcd8d3;
+            position: relative;
+        }
+
+        .quote-block::before {
+            content: "💡";
+            font-size: 1.8rem;
+            opacity: 0.7;
+            margin-right: 0.6rem;
+            vertical-align: middle;
+        }
+
+        .quote-block p {
+            display: inline;
+            font-style: normal;
+            color: #1e4a4a;
+            font-weight: 460;
+        }
+
+        .visit-sentence {
+            background: white;
+            padding: 1.2rem 1.6rem;
+            border-radius: 28px;
+            border: 1px solid #c6ddd8;
+            margin: 1.8rem 0 1rem 0;
+            font-size: 1.05rem;
+            color: #1e3d40;
+            box-shadow: 0 2px 8px rgba(0, 68, 73, 0.03);
+        }
+
+        .visit-sentence a {
+            color: #086b68;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid #49b5aa;
+            padding-bottom: 1px;
+            transition: background 0.15s;
+        }
+
+        .visit-sentence a:hover {
+            background: #d3f0e9;
+            border-bottom-color: #0a7c74;
+        }
+
+        .faq-mini {
+            margin-top: 2.2rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #d2e3df;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.8rem;
+            background: #f6fbfa;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            border: 1px solid #cde0dc;
+            cursor: pointer;
+        }
+
+        .faq-mini summary {
+            font-weight: 520;
+            color: #155a5a;
+            padding: 0.3rem 0;
+        }
+
+        .faq-mini details p {
+            padding: 0.5rem 0.2rem 0.2rem 0.2rem;
+            color: #2f5659;
+        }
+
+        .footer-note {
+            font-size: 0.9rem;
+            color: #64888a;
+            margin-top: 2.5rem;
+            text-align: center;
+            border-top: 1px solid #d5e6e2;
+            padding-top: 1.5rem;
+            letter-spacing: 0.2px;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem 0.6rem;
+            }
+            .page {
+                padding: 1.6rem 1.2rem;
+                border-radius: 20px;
+            }
+            .article-title {
+                font-size: 1.7rem;
+            }
+            .subhead {
+                max-width: 100%;
+                font-size: 0.95rem;
+            }
+            .intro {
+                padding: 1rem;
+                font-size: 0.98rem;
+            }
+            .card-note {
+                padding: 1rem 1.1rem;
+            }
+            .quote-block {
+                padding: 1.2rem 1.2rem;
+            }
+            .visit-sentence {
+                padding: 1rem 1.2rem;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .article-title {
+                font-size: 1.4rem;
+            }
+            .page {
+                padding: 1rem 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="article-header">
+            <h1 class="article-title">关于这个站点：<br>你想找的 <span style="color:#0a7c74;">百家乐</span> 信息</h1>
+            <div class="subhead">快速识别 · 用途说明</div>
+        </div>
+
+        <div class="intro">
+            初次来到 <strong>page--baijiale.com</strong>，你可能想确认它是否与你的需求匹配。以下从站点定位、内容组织和常见用途出发，帮你用最短时间理解这个网站的核心。
+        </div>
+
+        <div class="content-grid">
+            <div class="card-note">
+                <h3>一块聚集地，而非单一页面</h3>
+                <p>这里并非游戏界面或教学平台，而是围绕 <span class="highlight-text">百家乐</span> 相关信息整理的一个索引式站点。你在这里能找到规则摘要、策略思路、术语速查以及不同玩法下的常见疑问。所有内容都保持中立，仅作信息参考。</p>
+            </div>
+            <div class="card-note">
+                <h3>谁适合浏览？</h3>
+                <p>如果你对 <span class="highlight-text">百家乐</span> 只有模糊印象，或希望系统了解其基本规则与赔率结构，那么这个站点的结构能帮你快速建立认知框架。内容上避免过度延伸，聚焦在可验证的事实上。</p>
+            </div>
+            <div class="card-note">
+                <h3>信息密度优先</h3>
+                <p>每篇文章和条目都控制篇幅，尽量用短段落和要点呈现。例如赔率对比、补牌规则、常见术语（庄、闲、对子、自然牌）等，都放在独立卡片或折叠区，方便快速检索。</p>
+            </div>
+        </div>
+
+        <div class="quote-block">
+            <p>无论你是第一次接触，还是想确认某个规则细节，这个站点都致力于提供清晰、不带引导性的内容。建议先从目录或标签页入手，根据你的兴趣点逐条查看。</p>
+        </div>
+
+        <div class="visit-sentence">
+            📌 如果你已经了解背景，可以直接前往 <a href="https://page--baijiale.com">百家乐</a> 站点浏览具体分类内容。
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <div class="faq-mini">
+            <details>
+                <summary>❓ 这个网站包含“打法”或“预测”类内容吗？</summary>
+                <p>不提供任何预测或所谓“必胜”方法。只归纳通用的规则、概率以及玩家间常见的策略讨论，并标明这些仅作为参考，不构成建议。</p>
+            </details>
+            <details>
+                <summary>📂 信息更新频率怎么样？</summary>
+                <p>内容保持静态整理，但会不定期根据可靠资料修订规则表述。本站不追踪实时变化，所有数据以当前版本为准。</p>
+            </details>
+            <details>
+                <summary>🔍 是否可以快速查找特定术语？</summary>
+                <p>页面采用标签化结构，常见术语如「庄家抽水」「自然牌」「路单」等都有独立段落，建议使用浏览器查找功能（Ctrl+F）定位。</p>
+            </details>
+        </div>
+
+        <div class="footer-note">
+            内容仅供参考 · 请自行核实规则 · 客观信息整理
+        </div>
+    </div>
+</body>
+</html>
