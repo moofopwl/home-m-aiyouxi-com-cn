@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>老哥网 · 主题信息站</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #faf8f3;
+      font-family: system-ui, -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
+      color: #2c2c2c;
+      line-height: 1.7;
+      padding: 2rem 1.2rem;
+    }
+
+    .page-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #fffcf8;
+      border-radius: 36px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+      padding: 2.8rem 2.2rem 3.2rem;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem 0.8rem;
+      }
+      .page-wrap {
+        padding: 2rem 1.2rem 2.5rem;
+        border-radius: 28px;
+      }
+    }
+
+    /* ====== 主视觉 ====== */
+    .hero {
+      text-align: center;
+      padding-bottom: 2.2rem;
+      border-bottom: 1px solid #eee7dd;
+      margin-bottom: 2.4rem;
+    }
+
+    .hero-icon {
+      font-size: 3.4rem;
+      line-height: 1;
+      display: block;
+      margin-bottom: 0.3rem;
+      letter-spacing: 6px;
+      color: #b7a48b;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: #3a3229;
+    }
+
+    .hero .sub {
+      color: #8a7b69;
+      font-size: 1rem;
+      margin-top: 0.4rem;
+      font-weight: 350;
+      border-bottom: 1px dotted #ddd3c6;
+      display: inline-block;
+      padding-bottom: 2px;
+    }
+
+    /* ====== 通用卡片 ====== */
+    .card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.8rem 1.8rem 1.9rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02);
+      border: 1px solid #f1ece5;
+      transition: box-shadow 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: #4a3f33;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .card-title span {
+      background: #efe7dc;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: #5f4f3b;
+    }
+
+    .card p {
+      color: #3f3a34;
+      margin-bottom: 0.6rem;
+    }
+
+    .card p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    /* ====== 引用框 / 提示框 ====== */
+    .quote-block {
+      background: #f6f1ea;
+      border-left: 5px solid #cbb7a3;
+      padding: 1.2rem 1.6rem;
+      border-radius: 18px;
+      margin: 1.8rem 0 2rem;
+      font-style: normal;
+      color: #3f372e;
+    }
+
+    .quote-block strong {
+      color: #644e38;
+      font-weight: 550;
+    }
+
+    .tip-box {
+      background: #f3efe7;
+      border-left: 6px solid #b5a084;
+      border-radius: 20px;
+      padding: 1.1rem 1.5rem;
+      margin: 1.5rem 0 1.8rem;
+      font-size: 0.96rem;
+    }
+
+    .tip-box::before {
+      content: "📌 提示";
+      display: block;
+      font-weight: 500;
+      color: #4b3f31;
+      margin-bottom: 0.25rem;
+      letter-spacing: 0.5px;
+    }
+
+    /* ====== 适合人群网格 ====== */
+    .group-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.2rem 0 0.2rem;
+    }
+
+    @media (max-width: 480px) {
+      .group-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .group-item {
+      background: #f8f4ee;
+      border-radius: 18px;
+      padding: 1rem 1.2rem;
+      border: 1px solid #ece4d9;
+    }
+
+    .group-item h4 {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #4d4032;
+      margin-bottom: 0.3rem;
+    }
+
+    .group-item p {
+      font-size: 0.9rem;
+      color: #5d5346;
+    }
+
+    /* ====== 段落链接 ====== */
+    .link-paragraph {
+      background: #fcf9f5;
+      border-radius: 18px;
+      padding: 1.5rem 1.8rem;
+      margin-top: 1.8rem;
+      border: 1px solid #eae2d7;
+    }
+
+    .link-paragraph a {
+      color: #7a6044;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 2px solid #dccfc0;
+      padding-bottom: 1px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .link-paragraph a:hover {
+      color: #4f3a25;
+      border-bottom-color: #9f8569;
+    }
+
+    /* ====== FAQ 摘要 ====== */
+    .faq-mini {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin: 1.8rem 0 1rem;
+    }
+
+    .faq-item {
+      background: #fbf8f3;
+      border-radius: 20px;
+      padding: 0.9rem 1.4rem;
+      border: 1px solid #ede6dc;
+    }
+
+    .faq-question {
+      font-weight: 500;
+      color: #3f3429;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .faq-answer {
+      color: #5b5145;
+      font-size: 0.92rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e9dfd3;
+      margin: 2rem 0 1rem;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #aa9c8a;
+      margin-top: 2rem;
+      letter-spacing: 0.3px;
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- 主视觉 hero -->
+  <div class="hero">
+    <span class="hero-icon">⛰️📚</span>
+    <h1>老哥网</h1>
+    <div class="sub">内容 · 话题 · 日常探索</div>
+  </div>
+
+  <!-- 用途卡片：主题卡片 -->
+  <div class="card">
+    <div class="card-title"><span>🔍</span> 围绕哪些主题展开</div>
+    <p>这里的内容大多从具体的关键词和现象出发，整理成偏重信息性的短文或笔记。无论是生活观察、兴趣杂谈，还是某些领域的基础脉络，都尽量用清晰的逻辑和朴实的语言呈现。</p>
+    <p>在<a href="https://home-laoge.com">老哥网</a>上，你找不到浮夸的标题或强推销的文案，更多像是一份安静的案头记录，留给愿意慢慢翻阅的人。</p>
+  </div>
+
+  <!-- 提示框 + 引用 -->
+  <div class="quote-block">
+    <strong>引用一段站内笔记：</strong>“信息的价值不在于它多新，而在于它是否跟你的思考产生了真实的摩擦。老哥网不追热点，只做沉淀后的梳理。”
+  </div>
+
+  <div class="tip-box">
+    如果你正在寻找某个话题相对完整的背景，或者只是想换一种节奏阅读，不妨把这里当作一个安静的角落，随手翻翻。
+  </div>
+
+  <!-- 适合人群卡片 -->
+  <div class="card">
+    <div class="card-title"><span>👥</span> 适合哪些人</div>
+    <div class="group-grid">
+      <div class="group-item">
+        <h4>喜欢细致梳理的读者</h4>
+        <p>不满足于碎片信息，希望看到某个关键词背后的脉络和关联。</p>
+      </div>
+      <div class="group-item">
+        <h4>对生活话题有好奇心</h4>
+        <p>从饮食文化到日常器物，从地方习俗到语言演变，常有出乎意料的角度。</p>
+      </div>
+      <div class="group-item">
+        <h4>避开算法茧房的探索者</h4>
+        <p>没有强推荐流，每个页面都是独立的存在，可以按兴趣自由跳转。</p>
+      </div>
+      <div class="group-item">
+        <h4>内容创作者 &amp; 资料收集者</h4>
+        <p>作为灵感或背景素材的补给站，很多条目附有来源和延伸思考。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要卡片 -->
+  <div class="card" style="padding-bottom:1.6rem;">
+    <div class="card-title"><span>❓</span> 常见问题 · 摘要</div>
+    <div class="faq-mini">
+      <div class="faq-item">
+        <span class="faq-question">页面多久更新一次？</span>
+        <div class="faq-answer">没有固定排期，由作者选题和整理节奏决定，有时一周两三篇，有时半月一篇。量不大，但每篇都经过推敲。</div>
+      </div>
+      <div class="faq-item">
+        <span class="faq-question">可以转载或引用这里的内容吗？</span>
+        <div class="faq-answer">文章大多以个人整理为主，若能标明出处链接就好。具体每篇末尾通常有说明。</div>
+      </div>
+      <div class="faq-item">
+        <span class="faq-question">为什么叫“老哥网”？</span>
+        <div class="faq-answer">取“老哥”一词里那种平实、可聊几句的亲近感，没有太复杂的寓意，就是希望给人一点从容。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 自然链接段落（满足必含 a 标签且文本为“老哥网”） -->
+  <div class="link-paragraph">
+    <p>如果你对这个站点的调性感到好奇，或是想找一些不同风格的阅读内容，可以直接前往 <a href="https://home-laoge.com">老哥网</a> 翻翻看。那里没有弹窗，没有催促，只有安静的页面和整理过的文字。</p>
+    <p style="margin-top:0.6rem; color:#6a5d4c;">—— 希望这个小小的信息卡片，能帮你更快了解这里是不是你喜欢的那种地方。</p>
+  </div>
+
+  <hr>
+
+  <div class="footer-note">
+    内容随缘更新 · 老哥网
+  </div>
+
+</div>
+</body>
+</html>
